@@ -24,7 +24,9 @@ gab, ist die einfachste Variante gewählt und mit **BITTE PRÜFEN** markiert.
 3. **Logo:** Im Quellmaterial gibt es kein avanti-Logo, nur das der Quell-App. Die Logo-Regeln
    (weiß auf dem Rahmen, Höhe 22 px bzw. 20 px) stehen als Kommentar im Thema; die App gibt ihr Logo
    über `brand`/`mobileBrand` hinein. Die Musterseite zeigt eine Wortmarke als Platzhalter.
-   **BITTE PRÜFEN:** Soll die avanti-Wortmarke als Datei in dieses Repo?
+   **Entschieden (Matthias, 16.11.2026):** Nein. Es gibt mehrere Produkte mit eigenen Logos;
+   Logos und Produktnamen bleiben im Repo des jeweiligen Produkts (LEITFADEN.md, „Für alle, die
+   am Code arbeiten“).
 4. **Kein Dark Mode** (wie in der Quelle); alles läuft über Tokens.
 
 ## Leitfaden

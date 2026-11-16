@@ -168,6 +168,11 @@ Alle Bausteine haben Tests (Tastatur, Fokus, Zustände, reduced motion) in `src/
 - **Tokens statt Hex.** Farben kommen ausschließlich aus dem Thema (CSS-Variablen in `:root`, als
   Tailwind-Klassen über `@theme inline`). Fehlt ein Wert, wird dort ein Token ergänzt. Ausnahme:
   von Kunden gepflegte Farben (z. B. Arten von Abwesenheiten) als Daten.
+- **Logos und Produktnamen gehören nicht in dieses Repo.** Das Thema beschreibt die Marke des
+  Unternehmens (Farben, Schriften) und die Regel, wie ein Logo im Rahmen sitzt. Das Logo selbst,
+  der Produktname und das Favicon liegen im Repo des jeweiligen Produkts und kommen über die
+  Props `brand` und `mobileBrand` in den App-Rahmen. So kann kein Produkt versehentlich das Logo
+  eines anderen bekommen.
 - **Bausteine statt Einzelfall.** Wiederkehrendes gehört nach `src/ui`, reine Logik ohne React nach
   `src/lib` (Ergebnis statt Exception).
 - **Keine neue Schrift, kein neues Icon-Set** (lucide-react), keine Chart-Bibliothek. Neue
