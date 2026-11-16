@@ -92,6 +92,13 @@ describe('registry.json', () => {
     expect([...byName.keys()].some((n) => n === 'sheet')).toBe(false);
   });
 
+  it('keine zwei Dateien mit gleichem Namen (shadcn löst Importe über den Dateinamen auf)', () => {
+    const names = items.flatMap((i) =>
+      i.files.map((f) => f.path.slice(f.path.lastIndexOf('/') + 1).replace(/\.[^.]+$/, '')),
+    );
+    expect(names.filter((n, i) => names.indexOf(n) !== i)).toEqual([]);
+  });
+
   it('Abhängigkeiten untereinander zeigen auf Einträge dieser Registry', () => {
     for (const item of items)
       for (const dep of item.registryDependencies ?? []) {

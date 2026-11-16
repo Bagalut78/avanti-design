@@ -9,7 +9,7 @@ import {
   toggleFilter,
   type SortState,
   type SortValue,
-} from '@/lib/table';
+} from '@/lib/table-logic';
 import { cn } from '@/lib/cn';
 import { Chip } from './chip';
 import { EmptyState } from './empty-state';
@@ -89,7 +89,7 @@ function pageWindow(page: number, count: number): number[] {
 /**
  * Datentabelle der Designsprache 2: Suche, Filter-Chips, sortierbare Köpfe, zweizeilige Zellen
  * (`CellStack`), Aktionen in der Zeile, Blättern, Lade- und Leerzustand. Die Logik (suchen,
- * filtern, sortieren, blättern) liegt rein funktional in src/lib/table.ts.
+ * filtern, sortieren, blättern) liegt rein funktional in src/lib/table-logic.ts.
  */
 export function DataTable<T>({
   rows,

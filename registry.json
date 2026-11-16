@@ -90,7 +90,7 @@
       "description": "Suchen, Filtern, Sortieren, Blättern; Initialen und Farbton für Avatare.",
       "files": [
         {
-          "path": "src/lib/table.ts",
+          "path": "src/lib/table-logic.ts",
           "type": "registry:lib"
         }
       ]

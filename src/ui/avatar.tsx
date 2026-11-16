@@ -1,4 +1,4 @@
-import { hueIndexOf, initialsOf } from '@/lib/table';
+import { hueIndexOf, initialsOf } from '@/lib/table-logic';
 import { cn } from '@/lib/cn';
 
 /** Töne aus der Marke (Text auf Fläche ≥ 4,5:1, siehe tokens.test.ts). */

@@ -1,6 +1,6 @@
 import { ArrowDown, ArrowUp, ChevronsUpDown } from 'lucide-react';
 import type { ComponentProps, ReactNode } from 'react';
-import type { SortDirection } from '@/lib/table';
+import type { SortDirection } from '@/lib/table-logic';
 import { cn } from '@/lib/cn';
 
 /**

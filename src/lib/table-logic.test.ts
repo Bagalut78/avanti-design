@@ -10,7 +10,7 @@ import {
   sortRows,
   toggleFilter,
   type SortValue,
-} from './table';
+} from './table-logic';
 
 interface Row {
   readonly name: string;

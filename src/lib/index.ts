@@ -33,7 +33,7 @@ export {
   type SortDirection,
   type SortState,
   type SortValue,
-} from './table';
+} from './table-logic';
 export { activeNavTarget, navLeaves, type NavTarget } from './nav';
 export { cn } from './cn';
 export { err, ok, type Result } from './result';
