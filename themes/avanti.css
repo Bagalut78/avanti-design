@@ -1,0 +1,366 @@
+/*
+ * Thema „avanti“ der Designsprache 2: Marke (Farben, Schriften, Logo-Regeln) und alle Tokens, die
+ * die Bausteine in src/ui benutzen. Die Regeln selbst stehen markenneutral in LEITFADEN.md.
+ *
+ * Einbinden (nach Tailwind):
+ *   @import 'tailwindcss';
+ *   @import './avanti.css';
+ *
+ * Tokens statt Hex: Bausteine verwenden ausschließlich die Variablen hier. Fehlt ein Wert, wird
+ * hier ein Token ergänzt.
+ *
+ * Marke avanti (Brand Guide 07/2025):
+ * - Dunkelblau #172b52 führt: Rahmen und Seitenleiste, Primäraktion, Fokusring.
+ * - Graublau #224072 als zweite Markenfarbe (Grafiken).
+ * - Türkis #43bede nur als Fläche oder auf Dunkelblau (6,42:1), nie als Text auf Weiß.
+ * - Orange #fd8d3d nur als Status-Fläche, nie als Knopffläche; als Text auf Weiß #ba5808 (4,68:1)
+ *   oder #944408 (6,80:1).
+ * - Schriften: Poppins (Überschriften, große Zahlen), Inter (Oberfläche), Geist Mono (kleine
+ *   Großbuchstaben-Etiketten, Achsen) – lokal über @fontsource gebündelt, kein Aufruf zu Google
+ *   Fonts.
+ * - Logo: auf dem dunkelblauen Rahmen immer die weiße Fassung, auf hellen Flächen die dunkle;
+ *   Höhe in der Seitenleiste 22 px, in der Kopfzeile schmaler Fenster 20 px. Das Logo bringt die
+ *   App mit (Prop `brand` von AppShell/Sidebar); es liegt nicht in diesem Repo.
+ * - Kein Dark Mode: alles läuft über Tokens und lässt sich nachrüsten.
+ */
+
+/* Schriften: Display Poppins, Body/UI Inter, Mono Geist Mono – lokal gebündelt. */
+@import '@fontsource-variable/inter/wght.css';
+@import '@fontsource/poppins/500.css';
+@import '@fontsource/poppins/600.css';
+@import '@fontsource-variable/geist-mono/wght.css';
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-muted: var(--sidebar-muted);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+
+  /* avanti Markenfarben (Brand Guide 07/2025) */
+  --color-brand-darkblue: #172b52;
+  --color-brand-grayblue: #224072;
+  --color-brand-turquoise: #43bede; /* nur auf dunklem Grund / als Fläche */
+  --color-brand-orange: #fd8d3d; /* Fläche / auf dunkel */
+  --color-brand-orange-accessible: #ba5808; /* Orange als Text auf Weiß, 4.68:1 */
+  --color-brand-orange-strong: #944408; /* Orange als Text auf Weiß, 6.80:1 – nicht auf Dunkelblau */
+  --color-brand-lightgray: #f8f9fa;
+
+  /* Statusfarben – auf Weiß lesbar */
+  --color-score-low: #dc2626;
+  --color-score-mid: #ba5808;
+  --color-score-high: #15803d;
+
+  --font-sans:
+    'Inter Variable', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+  --font-display: 'Poppins', 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-mono:
+    'Geist Mono Variable', ui-monospace, 'SF Mono', Menlo, Monaco, 'Cascadia Mono', monospace;
+}
+
+/* Hell, kühl-neutral, Dunkelblau führend */
+:root {
+  --radius: 0.5rem;
+
+  --primary: #172b52;
+  --primary-foreground: #ffffff;
+
+  --background: #f6f7f9;
+  --foreground: #1a2233;
+
+  --card: #ffffff;
+  --card-foreground: #1a2233;
+
+  --popover: #ffffff;
+  --popover-foreground: #1a2233;
+
+  --secondary: #eef1f5;
+  --secondary-foreground: #1a2233;
+
+  --muted: #eef1f5;
+  --muted-foreground: #5a6473;
+
+  /* Accent ist ein Hover-Grauton, keine Aktionsfarbe. */
+  --accent: #eef1f5;
+  --accent-foreground: #1a2233;
+
+  --destructive: #dc2626;
+  --destructive-foreground: #ffffff;
+
+  --border: #e3e7ec;
+  /* Rahmen von Eingabefeldern: 3:1 nach WCAG 1.4.11 (die Haarlinie erreicht nur ~1,3:1). */
+  --input: #868f9d;
+  --ring: #172b52;
+
+  --chart-1: #172b52;
+  --chart-2: #43bede;
+  --chart-3: #fd8d3d;
+  --chart-4: #224072;
+  --chart-5: #16a34a;
+
+  /* Seitenleiste: immer dunkel, Türkis als Akzent (auf Dunkelblau 6.42:1) */
+  --sidebar: #172b52;
+  --sidebar-foreground: rgba(255, 255, 255, 0.82);
+  --sidebar-muted: rgba(255, 255, 255, 0.62);
+  --sidebar-primary: #43bede;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: rgba(255, 255, 255, 0.08);
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: rgba(255, 255, 255, 0.1);
+  --sidebar-ring: #43bede;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-sans);
+  }
+
+  h1,
+  h2,
+  h3,
+  .font-display {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+  }
+
+  .font-mono,
+  code,
+  kbd,
+  samp,
+  pre {
+    font-family: var(--font-mono);
+    font-feature-settings: 'tnum', 'cv02';
+  }
+
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+.scrollbar-sidebar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.14) transparent;
+}
+
+.scrollbar-content {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.14) transparent;
+}
+
+/*
+ * Designsprache 2 (LEITFADEN.md): Ebenen, Schatten, Radien, Töne und Bewegung der Bausteine.
+ * Alle Namen mit Präfix `ds`, damit keine Klasse der App (z. B. Tailwinds `ease-out`) ihre
+ * Bedeutung ändert. Bewegung: nur transform/opacity, Erscheinen ease-out, Platzwechsel
+ * ease-in-out, unter prefers-reduced-motion ohne Weg.
+ */
+@theme inline {
+  --color-ds-canvas: var(--ds-canvas);
+  --color-ds-workspace: var(--ds-workspace);
+  --color-ds-frame: var(--ds-frame);
+  --color-ds-core: var(--ds-core);
+  --color-ds-line: var(--ds-line);
+  --color-ds-line-strong: var(--ds-line-strong);
+  --color-ds-hover: var(--ds-hover);
+  --color-ds-placeholder: var(--ds-placeholder);
+  --color-ds-scrim: var(--ds-scrim);
+  --color-ds-nav-active: var(--ds-nav-active);
+  --color-ds-nav-active-foreground: var(--ds-nav-active-foreground);
+  --color-ds-up: var(--ds-up);
+  --color-ds-down: var(--ds-down);
+  --color-ds-success-bg: var(--ds-success-bg);
+  --color-ds-success-fg: var(--ds-success-fg);
+  --color-ds-success-line: var(--ds-success-line);
+  --color-ds-warning-bg: var(--ds-warning-bg);
+  --color-ds-warning-fg: var(--ds-warning-fg);
+  --color-ds-warning-line: var(--ds-warning-line);
+  --color-ds-danger-bg: var(--ds-danger-bg);
+  --color-ds-danger-fg: var(--ds-danger-fg);
+  --color-ds-danger-line: var(--ds-danger-line);
+  --color-ds-info-bg: var(--ds-info-bg);
+  --color-ds-info-fg: var(--ds-info-fg);
+  --color-ds-info-line: var(--ds-info-line);
+  --color-ds-neutral-bg: var(--ds-neutral-bg);
+  --color-ds-neutral-fg: var(--ds-neutral-fg);
+  --color-ds-neutral-line: var(--ds-neutral-line);
+
+  --radius-ds-workspace: 18px;
+  --radius-ds-card: 14px;
+  --radius-ds-core: 10px;
+  --radius-ds-control: 8px;
+  --radius-ds-badge: 6px;
+
+  --shadow-ds-1: 0 1px 2px rgb(23 43 82 / 0.04), 0 1px 1px rgb(23 43 82 / 0.02);
+  --shadow-ds-2: 0 1px 2px rgb(23 43 82 / 0.04), 0 6px 16px -6px rgb(23 43 82 / 0.08);
+  --shadow-ds-3: 0 2px 6px rgb(23 43 82 / 0.06), 0 24px 48px -12px rgb(23 43 82 / 0.22);
+
+  --ease-ds-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-ds-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+
+  --animate-ds-enter: ds-enter 180ms var(--ease-ds-out) both;
+  --animate-ds-fade-in: ds-fade-in 160ms var(--ease-ds-out) both;
+  --animate-ds-placeholder-in: ds-fade-in 160ms var(--ease-ds-out) 300ms both;
+  --animate-ds-scrim-in: ds-fade-in 200ms var(--ease-ds-out) both;
+  --animate-ds-scrim-out: ds-fade-out 150ms var(--ease-ds-out) both;
+  --animate-ds-side-sheet-in: ds-side-sheet-in 200ms var(--ease-ds-out) both;
+  --animate-ds-side-sheet-out: ds-side-sheet-out 150ms var(--ease-ds-out) both;
+}
+
+:root {
+  /* Ebenen: Seitenrahmen (dunkel), Arbeitsfläche, Karte (getönter Rahmen, weißer Kern) */
+  --ds-canvas: #172b52;
+  --ds-workspace: #f6f7f9;
+  --ds-frame: #eff2f6;
+  --ds-core: #ffffff;
+  --ds-line: #e3e7ec;
+  --ds-line-strong: #d5dbe3;
+  --ds-hover: #f5f7fa;
+  --ds-placeholder: #e8ecf1;
+  --ds-scrim: rgb(23 43 82 / 0.28);
+  --ds-nav-active: rgba(255, 255, 255, 0.12);
+  --ds-nav-active-foreground: #ffffff;
+
+  /* Veränderung: besser / schlechter (Text auf Weiß ≥ 4,5:1) */
+  --ds-up: #146c34;
+  --ds-down: #b91c1c;
+
+  /* Getönte Badges mit Linie: Text auf Tönung ≥ 4,5:1 */
+  --ds-success-bg: #eaf6ee;
+  --ds-success-fg: #166534;
+  --ds-success-line: #b9e0c6;
+  --ds-warning-bg: #ffeadb;
+  --ds-warning-fg: #944408;
+  --ds-warning-line: #f3c7a5;
+  --ds-danger-bg: #fdeded;
+  --ds-danger-fg: #b91c1c;
+  --ds-danger-line: #f5c4c4;
+  --ds-info-bg: #e1e7f1;
+  --ds-info-fg: #172b52;
+  --ds-info-line: #c3cee0;
+  --ds-neutral-bg: #eef1f5;
+  --ds-neutral-fg: #4a5361;
+  --ds-neutral-line: #d5dbe3;
+
+  /* Bewegung: Laufzeit-Maße; unter reduced motion ohne Weg */
+  --ds-duration: 180ms;
+  --ds-duration-fast: 160ms;
+  --ds-duration-slow: 200ms;
+  --ds-duration-exit: 150ms;
+  /* Hochzählen und Zeichnen der Grafiken: selten, darf etwas länger sein */
+  --ds-duration-count: 700ms;
+  --ds-duration-draw: 600ms;
+  --ds-enter-y: 4px;
+  --ds-side-sheet-x: 100%;
+  --ds-press-scale: 0.97;
+  /* Eintrittsversatz je Element einer Gruppe (Kacheln, Karten) */
+  --ds-stagger: 40ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --ds-enter-y: 0px;
+    --ds-side-sheet-x: 0px;
+    --ds-press-scale: 1;
+    --ds-stagger: 0ms;
+  }
+}
+
+@keyframes ds-enter {
+  from {
+    opacity: 0;
+    transform: translateY(var(--ds-enter-y));
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes ds-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes ds-fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes ds-side-sheet-in {
+  from {
+    opacity: 0;
+    transform: translateX(var(--ds-side-sheet-x));
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes ds-side-sheet-out {
+  from {
+    opacity: 1;
+    transform: none;
+  }
+  to {
+    opacity: 0;
+    transform: translateX(var(--ds-side-sheet-x));
+  }
+}
+
+/* Druck-Rückmeldung an Bedienelementen (transform in der Transition-Liste). */
+@utility ds-press {
+  transition-property: color, background-color, border-color, box-shadow, opacity, transform;
+  transition-duration: var(--ds-duration-fast);
+  transition-timing-function: var(--ease-ds-out);
+  &:active:not(:disabled) {
+    transform: scale(var(--ds-press-scale));
+  }
+}
