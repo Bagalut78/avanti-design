@@ -1,0 +1,8 @@
+dist
+coverage
+node_modules
+public/r
+_quelle
+GOAL.md
+.claude
+package-lock.json
