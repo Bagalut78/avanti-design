@@ -4,3 +4,4 @@ node_modules/
 dist/
 .claude/ralph-loop.local.md
 .DS_Store
+public/r/
