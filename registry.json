@@ -1,0 +1,361 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "avanti-design",
+  "homepage": "https://github.com/Bagalut78/avanti-design",
+  "items": [
+    {
+      "name": "avanti-theme",
+      "type": "registry:file",
+      "title": "Thema avanti",
+      "description": "Marke avanti (Farben, Schriften, Logo-Regeln) und alle ds-Tokens der Designsprache 2: Ebenen, Schatten, Radien, Töne, Bewegung.",
+      "dependencies": [
+        "@fontsource-variable/inter",
+        "@fontsource/poppins",
+        "@fontsource-variable/geist-mono"
+      ],
+      "files": [
+        {
+          "path": "themes/avanti.css",
+          "type": "registry:file",
+          "target": "~/src/styles/avanti.css"
+        }
+      ]
+    },
+    {
+      "name": "lib-cn",
+      "type": "registry:lib",
+      "title": "cn",
+      "description": "Verbindet Klassen und löst Tailwind-Konflikte auf.",
+      "dependencies": ["clsx", "tailwind-merge"],
+      "files": [
+        {
+          "path": "src/lib/cn.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "lib-result",
+      "type": "registry:lib",
+      "title": "Result",
+      "description": "Ergebnis statt Exception für die Helfer.",
+      "files": [
+        {
+          "path": "src/lib/result.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "lib-charts",
+      "type": "registry:lib",
+      "title": "Geometrie der Grafiken",
+      "description": "Pfade für Verlaufslinie, Fläche und Bogen; Veränderung einer Kennzahl.",
+      "files": [
+        {
+          "path": "src/lib/charts.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "lib-contrast",
+      "type": "registry:lib",
+      "title": "Kontrast",
+      "description": "Kontrastverhältnis nach WCAG 2.1 und Lesen von CSS-Variablen.",
+      "registryDependencies": ["Bagalut78/avanti-design/lib-result"],
+      "files": [
+        {
+          "path": "src/lib/contrast.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "lib-nav",
+      "type": "registry:lib",
+      "title": "Navigation",
+      "description": "Aktiver Eintrag der Seitenleiste, ohne Router.",
+      "files": [
+        {
+          "path": "src/lib/nav.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "lib-table",
+      "type": "registry:lib",
+      "title": "Tabelle",
+      "description": "Suchen, Filtern, Sortieren, Blättern; Initialen und Farbton für Avatare.",
+      "files": [
+        {
+          "path": "src/lib/table-logic.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "motion",
+      "type": "registry:ui",
+      "title": "Bewegung",
+      "description": "Hochzählen und Zeichnen mit motion; Systemeinstellung „weniger Bewegung“.",
+      "dependencies": ["motion"],
+      "files": [
+        {
+          "path": "src/ui/motion.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "button",
+      "type": "registry:ui",
+      "title": "Button",
+      "description": "Knopf mit den Varianten und Größen der avanti suite, Druck-Rückmeldung.",
+      "dependencies": ["radix-ui"],
+      "registryDependencies": ["Bagalut78/avanti-design/lib-cn"],
+      "files": [
+        {
+          "path": "src/ui/button.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "badge",
+      "type": "registry:ui",
+      "title": "Badge",
+      "description": "Getöntes Etikett mit feiner Linie; Töne und Aliase der avanti suite.",
+      "registryDependencies": ["Bagalut78/avanti-design/lib-cn"],
+      "files": [
+        {
+          "path": "src/ui/badge.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/ui/badge-tone.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "chip",
+      "type": "registry:ui",
+      "title": "Chip",
+      "description": "Filter-Chip mit aria-pressed und Häkchen; Größe bleibt beim Umschalten gleich.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["Bagalut78/avanti-design/lib-cn"],
+      "files": [
+        {
+          "path": "src/ui/chip.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "avatar",
+      "type": "registry:ui",
+      "title": "Avatar",
+      "description": "Initialen mit stabilem Farbton, ohne Fotos.",
+      "registryDependencies": [
+        "Bagalut78/avanti-design/lib-table",
+        "Bagalut78/avanti-design/lib-cn"
+      ],
+      "files": [
+        {
+          "path": "src/ui/avatar.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "card",
+      "type": "registry:ui",
+      "title": "Card",
+      "description": "Karte mit getöntem Rand und weißem Kern: Kopf, Inhalt, Fußzeile.",
+      "registryDependencies": ["Bagalut78/avanti-design/lib-cn"],
+      "files": [
+        {
+          "path": "src/ui/card.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "page-header",
+      "type": "registry:ui",
+      "title": "PageHeader",
+      "description": "Seitenkopf mit Pfad, genau einer h1, Badge, Unterzeile und Aktionen.",
+      "dependencies": ["lucide-react"],
+      "files": [
+        {
+          "path": "src/ui/page-header.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "skeleton",
+      "type": "registry:ui",
+      "title": "Skeleton",
+      "description": "Platzhalter beim Laden, nach 300 ms weich, ohne Puls.",
+      "registryDependencies": ["Bagalut78/avanti-design/lib-cn"],
+      "files": [
+        {
+          "path": "src/ui/skeleton.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "empty-state",
+      "type": "registry:ui",
+      "title": "EmptyState",
+      "description": "Leerer Zustand: Symbol, Titel, ein Satz, genau eine Aktion.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["Bagalut78/avanti-design/lib-cn"],
+      "files": [
+        {
+          "path": "src/ui/empty-state.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "segmented",
+      "type": "registry:ui",
+      "title": "Segmented",
+      "description": "Umschalter als radiogroup; Marke gleitet bei Klick, springt bei Tastatur.",
+      "registryDependencies": ["Bagalut78/avanti-design/lib-cn"],
+      "files": [
+        {
+          "path": "src/ui/segmented.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "table",
+      "type": "registry:ui",
+      "title": "Table",
+      "description": "Tabellen-Bausteine: Zeilen 40 px, sortierbarer Kopf, zweizeilige Zelle.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "Bagalut78/avanti-design/lib-table",
+        "Bagalut78/avanti-design/lib-cn"
+      ],
+      "files": [
+        {
+          "path": "src/ui/table.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "data-table",
+      "type": "registry:ui",
+      "title": "DataTable",
+      "description": "Datentabelle mit Suche, Filter-Chips, Sortieren, Blättern, Laden und Leer.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "Bagalut78/avanti-design/chip",
+        "Bagalut78/avanti-design/empty-state",
+        "Bagalut78/avanti-design/skeleton",
+        "Bagalut78/avanti-design/table",
+        "Bagalut78/avanti-design/lib-table",
+        "Bagalut78/avanti-design/lib-cn"
+      ],
+      "files": [
+        {
+          "path": "src/ui/data-table.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "mini-charts",
+      "type": "registry:ui",
+      "title": "Sparkline, AreaChart, Gauge",
+      "description": "Mini-Grafiken als eigenes SVG: Verlaufslinie, Fläche mit Verlauf, Bogen.",
+      "dependencies": ["motion"],
+      "registryDependencies": [
+        "Bagalut78/avanti-design/motion",
+        "Bagalut78/avanti-design/lib-charts",
+        "Bagalut78/avanti-design/lib-cn"
+      ],
+      "files": [
+        {
+          "path": "src/ui/mini-charts.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "kpi-tile",
+      "type": "registry:ui",
+      "title": "KpiTile",
+      "description": "Kennzahl-Kachel: Zahl zählt hoch, Veränderung mit Pfeil und Vorzeichen, Mini-Verlauf.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [
+        "Bagalut78/avanti-design/badge",
+        "Bagalut78/avanti-design/mini-charts",
+        "Bagalut78/avanti-design/motion",
+        "Bagalut78/avanti-design/lib-charts",
+        "Bagalut78/avanti-design/lib-cn"
+      ],
+      "files": [
+        {
+          "path": "src/ui/kpi-tile.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "side-sheet",
+      "type": "registry:ui",
+      "title": "SideSheet",
+      "description": "Seitenblatt von rechts: Kopf mit Titel und Badge, Zeilen mit Symbol, Fuß mit Aktionen.",
+      "dependencies": ["lucide-react", "radix-ui"],
+      "registryDependencies": ["Bagalut78/avanti-design/lib-cn"],
+      "files": [
+        {
+          "path": "src/ui/side-sheet.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "sidebar",
+      "type": "registry:ui",
+      "title": "Sidebar",
+      "description": "Dunkelblaue Seitenleiste mit Gruppen, aufklappbaren Bereichen und Aktivzustand.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["Bagalut78/avanti-design/lib-nav", "Bagalut78/avanti-design/lib-cn"],
+      "files": [
+        {
+          "path": "src/ui/sidebar.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/ui/nav-types.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "app-shell",
+      "type": "registry:ui",
+      "title": "AppShell",
+      "description": "App-Rahmen: Seitenleiste als Hintergrund, Arbeitsfläche darauf; schmal als Schublade.",
+      "dependencies": ["lucide-react", "radix-ui"],
+      "registryDependencies": ["Bagalut78/avanti-design/sidebar"],
+      "files": [
+        {
+          "path": "src/ui/app-shell.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+/* Musterseite: Tailwind, dann das Thema avanti – so bindet auch eine App das Thema ein. */
+@import 'tailwindcss';
+@import '../../themes/avanti.css';
