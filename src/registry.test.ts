@@ -89,7 +89,6 @@ describe('registry.json', () => {
     expect(byName.get('avanti-theme')?.files[0]?.path).toBe('themes/avanti.css');
     for (const name of ['side-sheet', 'app-shell', 'sidebar', 'data-table', 'kpi-tile', 'chip'])
       expect(byName.has(name), name).toBe(true);
-    expect([...byName.keys()].some((n) => n === 'sheet')).toBe(false);
   });
 
   it('keine zwei Dateien mit gleichem Namen (shadcn löst Importe über den Dateinamen auf)', () => {

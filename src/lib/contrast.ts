@@ -75,7 +75,7 @@ export function contrastRatio(
   return ok((Math.max(l1, l2) + 0.05) / (Math.min(l1, l2) + 0.05));
 }
 
-/** Liest alle Custom Properties (`--name: wert;`) aus einem Stylesheet; die erste Definition gilt. */
+/** Liest alle Custom Properties (`--name: wert;`) aus CSS-Text; die erste Definition gilt. */
 export function readCssVariables(css: string): ReadonlyMap<string, string> {
   const variables = new Map<string, string>();
   for (const match of css.matchAll(/(--[\w-]+)\s*:\s*([^;{}]+);/g)) {
